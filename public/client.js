@@ -1,10 +1,10 @@
 var socket = io();
+$('#m').focus();
 $.get("/messages", function(data) {
   $.each(data, function(index, value) {
-    $("#messages").append($('<li>').text(msg));
+    $("#messages").append($('<li>').text(value));
   });
 });
-$('#m').focus();
 $('form').submit(function(){
     socket.emit('chat message', $('#m').val());
     $('#m').val('');
